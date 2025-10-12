@@ -10,7 +10,7 @@
 <body>
     <header>
           <nav class="nav-bar">
-                 <img class="logo" alt="Logo" src="images/logo.jpeg">
+                 <img class="logo" alt="Logo" src="https://sevenbucks.com/wp-content/themes/sevenbucks/public/images/default/header_logo.svg">
                  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <link rel="stylesheet" href="index.css">
         <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
@@ -224,7 +224,7 @@
                          </a>
                      </li>
                      <li>
-                         <a href="https://sevenbucks.com/project/the-titan-games/" class="card" data-type="tvshow">
+                         <a href="#" class="card" data-type="tvshow">
                                 <img src="images/project19.jpg" alt="Video 1" width="310px" height="140px">
                                 <div class="card-content">
                                 <h3>THE TITAN GAMES</h3>
@@ -233,7 +233,7 @@
                          </a>
                      </li>
                      <li>
-                         <a href="https://sevenbucks.com/project/jumanji-welcome-to-the-jungle/" class="card" data-type="movie">
+                         <a href="#" class="card" data-type="movie">
                                 <img src="images/project20.jpg" alt="Video 1" width="310px" height="140px">
                                 <div class="card-content">
                                 <h3>JUMANJ: WELCOME TO THE JUNGLE</h3>
@@ -242,7 +242,7 @@
                          </a>
                      </li>
                      <li>
-                         <a href="https://sevenbucks.com/project/rock-the-troops-tv-special/" class="card" data-type="tvspecial">
+                         <a href="#" class="card" data-type="tvspecial">
                                 <img src="images/project21.png" alt="Video 1" width="310px" height="140px">
                                 <div class="card-content">
                                 <h3>ROCK THE TROOPS: TV SPECIAL</h3>
@@ -411,9 +411,99 @@
         // update on resize or scroll
         window.addEventListener('resize', updateButtons);
         viewport.addEventListener('scroll', updateButtons);
-
         // initial state
         updateButtons();
+
+        // Enable pointer/touch drag to scroll the viewport (works for touch and mouse)
+        (function enableDragScroll(el){
+            let isDown = false;
+            let startX = 0;
+            let startScroll = 0;
+            let dragged = false;
+            let lastX = 0;
+            let lastTime = 0;
+            let velocity = 0;
+            let rafId = null;
+
+            el.style.touchAction = el.style.touchAction || 'pan-y'; // allow vertical native scrolling
+
+            function cancelFling(){ if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+            el.addEventListener('pointerdown', (e) => {
+                // only initiate drag for touch or pen pointers; ignore mouse to keep native click/drag behavior
+                if (e.pointerType === 'mouse') return;
+                cancelFling();
+                isDown = true;
+                dragged = false;
+                startX = e.clientX;
+                startScroll = el.scrollLeft;
+                lastX = e.clientX;
+                lastTime = performance.now();
+                velocity = 0;
+                el.setPointerCapture && el.setPointerCapture(e.pointerId);
+                el.classList.add('dragging');
+            });
+
+            el.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                const dx = e.clientX - startX;
+                // require a slightly larger movement before we consider this a drag to avoid blocking clicks
+                if (Math.abs(dx) > 12) dragged = true;
+                el.scrollLeft = startScroll - dx;
+
+                // compute velocity (pixels per ms)
+                const now = performance.now();
+                const dt = now - lastTime || 16;
+                const vx = (e.clientX - lastX) / dt;
+                velocity = vx * 0.8 + velocity * 0.2; // simple smoothing
+                lastX = e.clientX;
+                lastTime = now;
+            });
+
+            function fling(initialV){
+                const decay = 0.95; // decay per frame
+                const step = () => {
+                    // convert velocity (px/ms) to px per frame approx (assuming 60fps ~16ms)
+                    const px = initialV * 16;
+                    el.scrollLeft -= px;
+                    initialV *= decay;
+                    // stop when velocity is small
+                    if (Math.abs(initialV) > 0.01) {
+                        rafId = requestAnimationFrame(step);
+                    } else {
+                        rafId = null;
+                    }
+                };
+                rafId = requestAnimationFrame(step);
+            }
+
+            function endDrag(e){
+                if (!isDown) return;
+                isDown = false;
+                try { el.releasePointerCapture && el.releasePointerCapture(e && e.pointerId); } catch(err){}
+                el.classList.remove('dragging');
+                // if user was dragging, suppress the next click that occurs inside this viewport only
+                if (dragged){
+                    const suppressOnce = (ev) => {
+                        if (!ev.target) return;
+                        if (el.contains(ev.target)) {
+                            ev.stopPropagation();
+                            ev.preventDefault();
+                        }
+                    };
+                    document.addEventListener('click', suppressOnce, { capture: true, once: true });
+                }
+
+                // apply fling based on velocity (reverse direction because mouse movement and scroll are opposite)
+                if (Math.abs(velocity) > 0.02) {
+                    fling(velocity);
+                }
+                velocity = 0;
+            }
+
+            el.addEventListener('pointerup', endDrag);
+            el.addEventListener('pointercancel', endDrag);
+        })(viewport);
     })();
     </script>
         <script>
@@ -550,6 +640,78 @@
                     window.addEventListener('resize', updateButtons);
                     // initial
                     updateButtons();
+
+                    // Enable pointer/touch drag for category viewport (with inertia)
+                    (function enableDragScroll(el){
+                        let isDown = false;
+                        let startX = 0;
+                        let startScroll = 0;
+                        let dragged = false;
+                        let lastX = 0;
+                        let lastTime = 0;
+                        let velocity = 0;
+                        let rafId = null;
+
+                        el.style.touchAction = el.style.touchAction || 'pan-y';
+
+                        function cancelFling(){ if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+                        el.addEventListener('pointerdown', (e) => {
+                            // only start touch/pen drags; ignore mouse
+                            if (e.pointerType === 'mouse') return;
+                            cancelFling(); isDown = true; dragged = false;
+                            startX = e.clientX; startScroll = el.scrollLeft;
+                            lastX = e.clientX; lastTime = performance.now(); velocity = 0;
+                            el.setPointerCapture && el.setPointerCapture(e.pointerId);
+                            el.classList.add('dragging');
+                        });
+
+                        el.addEventListener('pointermove', (e) => {
+                            if (!isDown) return;
+                            const dx = e.clientX - startX;
+                            // require slightly larger movement before considered a drag
+                            if (Math.abs(dx) > 12) dragged = true;
+                            el.scrollLeft = startScroll - dx;
+
+                            const now = performance.now();
+                            const dt = now - lastTime || 16;
+                            const vx = (e.clientX - lastX) / dt;
+                            velocity = vx * 0.8 + velocity * 0.2;
+                            lastX = e.clientX; lastTime = now;
+                        });
+
+                        function fling(initialV){
+                            const decay = 0.95;
+                            const step = () => {
+                                const px = initialV * 16;
+                                el.scrollLeft -= px;
+                                initialV *= decay;
+                                if (Math.abs(initialV) > 0.01) rafId = requestAnimationFrame(step); else rafId = null;
+                            };
+                            rafId = requestAnimationFrame(step);
+                        }
+
+                        function endDrag(e){
+                            if (!isDown) return; isDown = false;
+                            try{ el.releasePointerCapture && el.releasePointerCapture(e && e.pointerId); }catch{};
+                            el.classList.remove('dragging');
+                            if (dragged){
+                                const suppressOnce = (ev) => {
+                                    if (!ev.target) return;
+                                    if (el.contains(ev.target)) {
+                                        ev.stopPropagation();
+                                        ev.preventDefault();
+                                    }
+                                };
+                                document.addEventListener('click', suppressOnce, { capture: true, once: true });
+                            }
+                            if (Math.abs(velocity) > 0.02) fling(velocity);
+                            velocity = 0;
+                        }
+
+                        el.addEventListener('pointerup', endDrag);
+                        el.addEventListener('pointercancel', endDrag);
+                    })(viewport);
                 }
 
                 // Create the 'All' carousel (use clones so originals stay in their groups)
