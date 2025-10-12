@@ -5,13 +5,13 @@
 */
 
 :root{
-	--bg: #0b0b0b;
-	--surface: #0f1115; /* page panels / cards */
-	--muted: #9aa0a6; /* secondary text */
-	--text: #e8eef2; /* main text */
-	--accent: #d62828; /* primary accent */
-	--max-width: 1100px;
-	--header-offset: 84px; /* used for scroll-margin to avoid sticky header overlap */
+		--bg: #0b0b0b;
+		--surface: #0f1115; /* page panels / cards */
+		--muted: #9aa0a6; /* secondary text */
+		--text: #e8eef2; /* main text */
+		--accent: #d62828; /* primary accent */
+		--max-width: 1100px;
+		--header-offset: 84px; /* used for scroll-margin to avoid sticky header overlap */
 }
 
 /* Reset */
@@ -64,6 +64,10 @@ header{
 	margin:0 auto;
 	padding:12px 20px;
 }
+/* Hamburger button */
+.hamburger{display:none;background:transparent;border:0;padding:8px;display:inline-flex;flex-direction:column;gap:5px;justify-content:center}
+.hamburger-line{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .18s ease,opacity .18s ease}
+
 .nav-bar .logo{
 	object-fit:contain;
 	border-radius:6px;
@@ -416,23 +420,143 @@ section, section h1, section h2{
 
 /* Responsive */
 @media (max-width: 900px){
-	.banner-image{height:360px}
-	.nav-bar ul{display:none}
-	.nav-bar{padding:12px}
+ 	.banner-image{height:360px}
+ 	/* Show nav links as a stacked, touch-friendly menu on small screens */
+  	.nav-bar{padding:12px;flex-direction:column;align-items:stretch}
+   	.hamburger{display:inline-flex;position:absolute;left:16px;top:14px}
+  	.nav-bar .logo{margin-bottom:8px;display:block;margin-left:auto;margin-right:auto}
+  	.nav-bar > div{width:100%}
+  	.nav-bar ul{display:flex;flex-direction:column;gap:12px;margin-top:8px;background:rgba(16,18,22,0.98);padding:8px;border-radius:6px;width:100%}
+  	.nav-bar li h1{font-size:15px;padding:8px 12px}
+ 	:root{--header-offset:160px} /* header expands on small screens; use a moderate offset */
+ }
+
+/* extra compact nav for small phones */
+@media (max-width:420px){
+	.nav-bar{padding:8px}
+	.nav-bar .logo{height:44px}
+	.hamburger{left:12px;top:10px}
+	.nav-bar li h1{font-size:13px;padding:6px 10px}
+	:root{--header-offset:140px}
+}
+
+/* Mobile landscape tweaks: make the UI fit when phone is rotated */
+@media (orientation: landscape) and (max-width: 900px){
+	/* reduce header footprint */
+	:root{--header-offset:64px}
+
+	/* make banner much shorter but show entire image */
+	.banner-image{height:180px;max-height:220px;object-fit:contain}
+
+	/* stack buttons but keep them small */
+	.banner .view-project, .banner .trailer{
+		position:static;display:inline-block;width:auto;margin:6px 8px;padding:6px 10px;font-size:13px
+	}
+
+	/* shrink cards to fit landscape width and show full images */
+	.cards-list li{flex:0 0 calc((100% - 24px) / 2)}
+	.cards-list img, .card img{height:auto !important;object-fit:contain !important;max-height:160px}
+
+	/* press grid tighter */
+	.press-grid{grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));gap:18px}
+
+	/* modal iframe smaller in landscape */
+	iframe{height:200px}
+
+	/* founders smaller */
+	.founder-image{width:80px;height:80px}
+
+	/* compact nav */
+	.nav-bar{padding:8px}
+	.nav-bar .logo{height:40px}
+	.nav-bar li h1{font-size:12px;padding:6px 8px}
 }
 
 @media (max-width:700px){
-	.banner-image{height:260px}
-	.banner .view-project, .banner .trailer{left:20px;right:20px;bottom:18px;padding:10px 12px}
-	.banner .trailer{right:20px}
+ 	/* Make banner image fully visible on small screens */
+ 	.banner-image{height:auto;max-height:320px;object-fit:contain}
+ 	/* Make banner actions stack vertically to avoid overlap and be smaller */
+ 	.banner .view-project, .banner .trailer{position:static;display:block;width:calc(100% - 40px);margin:8px auto 0;padding:8px 10px;font-size:14px}
+ 	.banner .view-project{background:#444;padding:8px 10px}
+ 	.banner .trailer{background:transparent;border:1px solid rgba(255,255,255,0.9);padding:8px 10px}
 	.story{flex-direction:column;align-items:flex-start}
 	.press-articles{flex-direction:column}
 	.press-articles .article{width:100%}
+
+	/* Smaller project header link sizes on mobile */
+	.projects .projects-link ul{gap:10px}
+	.projects .projects-link li h3{font-size:14px}
+
+	/* Mobile: reduce card image heights for faster rendering and better fit */
+	/* On mobile show the full project images (no cropping) */
+	.cards-list img, .card img{height:auto !important;object-fit:contain !important;max-height:220px}
+
+	/* Make modal iframe responsive */
+	iframe{height:240px}
+
+	/* Slightly smaller founder avatars */
+	.founder-image{width:100px;height:100px}
+
+	/* Reduce header offset on small screens */
+	:root{--header-offset:200px}
 	footer{flex-direction:column;gap:8px;padding:18px}
+}
+
+/* When nav is open (header.nav-open), show the nav-links and animate hamburger */
+header.nav-open .nav-links{display:block}
+header.nav-open .hamburger-line:nth-child(1){transform: translateY(7px) rotate(45deg)}
+header.nav-open .hamburger-line:nth-child(2){opacity:0}
+header.nav-open .hamburger-line:nth-child(3){transform: translateY(-7px) rotate(-45deg)}
+
+/* Hide nav-links by default on narrow screens */
+@media (max-width:900px){
+	.nav-links{display:none}
+}
+
+/* Stack banner buttons on narrow screens to avoid overlap */
+@media (max-width:420px){
+	.banner .view-project, .banner .trailer{
+		position: static;
+		display:block;
+		width:calc(100% - 40px);
+		margin:10px auto 0;
+	}
+	.banner{padding-bottom:18px}
+}
+
+/* Strong mobile overrides to ensure nav is visible and banner actions stack */
+@media (max-width:900px){
+    .nav-bar ul{display:flex !important;flex-direction:column;position:relative;z-index:10001;width:100%;}
+    .nav-bar li h1{padding:10px 14px}
+}
+
+@media (max-width:700px){
+    .banner .view-project, .banner .trailer{position:relative !important;display:block !important;width:calc(100% - 40px) !important;margin:8px auto 0 !important}
+    .banner .view-project{background:#444 !important}
+}
+
+/* Very small screens adjustments */
+@media (max-width:420px){
+	.cards-list img, .card img{height:auto !important;object-fit:contain !important;max-height:200px}
+    .press-grid{gap:18px}
+    .nav-bar .logo{height:44px}
+	.nav-bar ul{gap:10px}
+    section{padding:32px 0}
+
+	/* Make banner buttons slightly smaller on very small screens */
+	.banner .view-project, .banner .trailer{padding:6px 8px;font-size:13px;width:calc(100% - 32px)}
+
+	/* Tighten project header links on very small screens */
+	.projects .projects-link ul{gap:8px}
+	.projects .projects-link li h3{font-size:13px}
 }
 
 @media (min-width:901px){
 	.container{padding:0}
+
+	/* On desktop, hide the mobile hamburger and make sure nav links are visible */
+	.hamburger{display:none !important}
+	.nav-links{display:block !important}
 }
 
 /* small aesthetic tweaks */

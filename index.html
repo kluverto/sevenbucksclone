@@ -9,19 +9,26 @@
 </head>
 <body>
     <header>
-        <nav class="nav-bar">
-             <img class="logo" alt="Logo" src="images/logo.jpeg">
-             <div>
-                <ul>
-                    <li><a href="#home"><h1>HOME</h1></a></li>
-                    <li><a href="#projects"><h1>PROJECTS</h1></a></li>
-                    <li><a href="#podcasts"><h1>PODCASTS</h1></a></li>
-                    <li><a href="#press"><h1>PRESS</h1></a></li>
-                    <li><a href="#our-story"><h1>OUR STORY</h1></a></li>
-                    <li><a href="#stay-connected"><h1>STAY CONNECTED</h1></a></li>
-                </ul>
-             </div>
-        </nav>
+          <nav class="nav-bar">
+                 <img class="logo" alt="Logo" src="images/logo.jpeg">
+                 <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <link rel="stylesheet" href="index.css">
+        <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
+        <link rel="apple-touch-icon" href="images/logo.jpeg">
+                     <span class="hamburger-line"></span>
+                     <span class="hamburger-line"></span>
+                 </button>
+                 <div class="nav-links">
+                     <ul>
+                          <li><a href="#home"><h1>HOME</h1></a></li>
+                          <li><a href="#projects"><h1>PROJECTS</h1></a></li>
+                          <li><a href="#podcasts"><h1>PODCASTS</h1></a></li>
+                          <li><a href="#press"><h1>PRESS</h1></a></li>
+                          <li><a href="#our-story"><h1>OUR STORY</h1></a></li>
+                          <li><a href="#stay-connected"><h1>STAY CONNECTED</h1></a></li>
+                     </ul>
+                 </div>
+          </nav>
     </header>
     <main>
     <section id="home" class="banner">
@@ -48,7 +55,7 @@
                             <li><a href="#" data-filter="podcast"><h3>Podcast</h3></a></li>
                         </ul>
                 </div>
-                <a href="#"><h3>VIEW MORE</h3></a>
+                <a href="https://sevenbucks.com/projects/"><h3>VIEW MORE</h3></a>
             </div>
             <div class="cards">
                 <button class="cards-arrow left" aria-label="Previous projects">&#8249;</button>
@@ -598,6 +605,30 @@
                 });
                 if (allLink) allLink.classList.add('active');
 
+            })();
+            </script>
+            <script>
+            // Mobile hamburger toggle
+            (function(){
+                const header = document.querySelector('header');
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelectorAll('.nav-links a');
+                if(!hamburger || !header) return;
+
+                function toggleNav(){
+                    const open = header.classList.toggle('nav-open');
+                    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                }
+
+                hamburger.addEventListener('click', (e)=>{ e.stopPropagation(); toggleNav(); });
+
+                // Close when clicking a nav link
+                navLinks.forEach(a => a.addEventListener('click', ()=> header.classList.remove('nav-open')));
+
+                // Close on outside click
+                document.addEventListener('click', (e)=>{
+                    if(!header.contains(e.target)) header.classList.remove('nav-open');
+                });
             })();
             </script>
 </html>
