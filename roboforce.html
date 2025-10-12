@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboForce: The Animated Series</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #000000;
+            padding: 20px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #cccccc;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            filter: brightness(0.8);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, #000000, transparent);
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .project-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .release-date {
+            font-size: 18px;
+            color: #999999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Description */
+        .description {
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .description p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: #cccccc;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .info-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .info-card h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999999;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: 2px solid #ffffff;
+            background: transparent;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+            }
+
+            .project-title {
+                font-size: 32px;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            .description p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Podcasts</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Stay Connected</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://sevenbucks.com/wp-content/uploads/2025/04/MV5BYzlhMmFkNjMtYjJhNi00MjkzLTk5NzMtOWRkNzEzNGUxNmNhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="RoboForce Poster" class="hero-image">
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <div class="project-header">
+            <h1 class="project-title">ROBOFORCE: THE ANIMATED SERIES</h1>
+            <p class="release-date">AVAILABLE NOW</p>
+        </div>
+
+        <div class="description">
+            <p>
+               RoboForce: The Animated Series is set in 2089. The latest version of Soraya Aviram’s RoboForce debuted with plans to assist a new intergalactic society on Earth. Unfortunately, the same day as the announcement, Soraya’s rival, Silas Duke, revealed his new Utopia Aegis 101 line of bots, which made RoboForce immediately obsolete. 
+            <p>
+               RoboForce split up and was forced into menial jobs for 15 years without hope of ever being heroes… Until mysteriously, a rogue code infected the Utopia Aegis 101’s to turn on humanity, and no one else besides Maxx 89 and the rest of RoboForce has a chance to stop them
+            </p>
+        </div>
+
+        <div class="button-group">
+            <a href="#" class="btn">Watch Trailer</a>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Studio</h3>
+                <p>TUBI</p>
+            </div>
+            </div>
+            <div class="info-card">
+                <h3>Genre</h3>
+                <p>Action, Animated</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Seven Bucks Productions. All rights reserved.</p>
+    </footer>
+</body>
+</html>

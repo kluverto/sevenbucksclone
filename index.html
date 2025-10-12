@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Bucks Productions- Official Website</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+             <img class="logo" alt="Logo" src="images/logo.jpeg">
+             <div>
+                <ul>
+                    <li><a href="#home"><h1>HOME</h1></a></li>
+                    <li><a href="#projects"><h1>PROJECTS</h1></a></li>
+                    <li><a href="#podcasts"><h1>PODCASTS</h1></a></li>
+                    <li><a href="#press"><h1>PRESS</h1></a></li>
+                    <li><a href="#our-story"><h1>OUR STORY</h1></a></li>
+                    <li><a href="#stay-connected"><h1>STAY CONNECTED</h1></a></li>
+                </ul>
+             </div>
+        </nav>
+    </header>
+    <main>
+    <section id="home" class="banner">
+            <img class="banner-image" alt="Banner Image" src="images/banner.jpg" width="100%" height="312.467px">
+            <a href="https://sevenbucks.com/project/the-smashing-machine/"><button class="view-project">View Project</button></a>
+            <button class="trailer" onclick="openModal()">Watch Trailer</button>
+            <div id="videoModal">
+                <div class="modal-content">
+                    <button class="modal-close-btn" onclick="closeModal()" aria-label="Close video">✕</button>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    <section id="projects" class="projects">
+            <h1>PROJECTS</h1>
+            <div class="projectheader">
+                <div class="projects-link">
+                        <ul>
+                            <li><a href="#" data-filter="all"><h3>All</h3></a></li>
+                            <li><a href="#" data-filter="movie"><h3>Movie</h3></a></li>
+                            <li><a href="#" data-filter="tvshow"><h3>TV Show</h3></a></li>
+                            <li><a href="#" data-filter="tvspecial"><h3>TV Special</h3></a></li>
+                            <li><a href="#" data-filter="podcast"><h3>Podcast</h3></a></li>
+                        </ul>
+                </div>
+                <a href="#"><h3>VIEW MORE</h3></a>
+            </div>
+            <div class="cards">
+                <button class="cards-arrow left" aria-label="Previous projects">&#8249;</button>
+                <div class="cards-viewport">
+                <ul class="cards-list">
+                     <li>
+                         <a href="teddy.html" class="card" data-type="movie">
+                                <img src="images/project1.png" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>TEDDY RUXPIN</h3>
+                                <p>IN DEVELOPMENT</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="andy.html" class="card" data-type="movie">
+                                <img src="images/project2.png" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>ANDY KAUFMAN IS ME</h3>
+                                <p>COMPLETED</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="smashing.html" class="card" data-type="movie">
+                                <img src="images/project3.png" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>THE SMASHING MACHINE</h3>
+                                <p>OCTOBER 3, 2025</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="roboforce.html" class="card" data-type="tvshow">
+                                <img src="images/project4.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>ROBOFORCE: THE ANIMATED SERIES</h3>
+                                <p>AVAILABLE NOW</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="redone.html" class="card" data-type="movie">
+                                <img src="images/project5.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>RED ONE</h3>
+                                <p>AVAILABLE NOW</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="who.html" class="card" data-type="tvshow">
+                                <img src="images/project6.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>WHO KILLED WCW?</h3>
+                                <p>AVAILABLE NOW</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="wrh.html" class="card" data-type="podcast">
+                                <img src="images/project7.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>WHAT REALLY HAPPENED?</h3>
+                                <p>SEPTEMBER 05, 2019</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="breaking.html" class="card" data-type="movie">
+                                <img src="images/project8.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>BREAKING OLYMPIA</h3>
+                                <p>AVAILABLE NOW</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="moana.html" class="card" data-type="movie">
+                                <img src="images/project9.png" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>MOANA: LIVE ACTION</h3>
+                                <p>IN DEVELOPMENT</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="young.html" class="card" data-type="tvshow">
+                                <img src="images/project10.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>YOUNG ROCK</h3>
+                                <p>NOVEMBER 04, 2022</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="tales.html" class="card" data-type="tvshow">
+                                <img src="images/project11.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>TALES FROM THE TERRITORIES</h3>
+                                <p>OCTOBER 04, 2022</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="black.html" class="card" data-type="movie">
+                                <img src="images/project12.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>BLACK ADAM</h3>
+                                <p>OCTOBER 12, 2022</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="dc.html" class="card" data-type="movie">
+                                <img src="images/project13.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>DC LEAGUE OF SUPER-PETS</h3>
+                                <p>JULY 29, 2022</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="red.html" class="card" data-type="movie">
+                                <img src="images/project14.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>RED NOTICE</h3>
+                                <p>NOVEMBER 05, 2021</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="jungle.html" class="card" data-type="movie">
+                                <img src="images/project15.webp" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>JUNGLE CRUISE</h3>
+                                <p>JULY 30, 2021</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="stunt.html" class="card" data-type="movie">
+                                <img src="images/project16.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>STUNTMAN</h3>
+                                <p>SEPTEMBER 20, 2018</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="https://sevenbucks.com/project/behind-the-attraction/" class="card" data-type="tvshow">
+                                <img src="images/project17.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>BEHIND THE ATTRACTION</h3>
+                                <p>JULY 21, 2021</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="https://sevenbucks.com/project/jumanji-the-next-level/" class="card" data-type="movie">
+                                <img src="images/project18.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>JUMANJI: THE NEXT LEVEL</h3>
+                                <p>DECEMBER 13, 2019</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="https://sevenbucks.com/project/the-titan-games/" class="card" data-type="tvshow">
+                                <img src="images/project19.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>THE TITAN GAMES</h3>
+                                <p>MAY 25, 2020</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="https://sevenbucks.com/project/jumanji-welcome-to-the-jungle/" class="card" data-type="movie">
+                                <img src="images/project20.jpg" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>JUMANJ: WELCOME TO THE JUNGLE</h3>
+                                <p>DECEMBER 20, 2017</p>
+                                </div>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="https://sevenbucks.com/project/rock-the-troops-tv-special/" class="card" data-type="tvspecial">
+                                <img src="images/project21.png" alt="Video 1" width="310px" height="140px">
+                                <div class="card-content">
+                                <h3>ROCK THE TROOPS: TV SPECIAL</h3>
+                                <p>IN DEVELOPMENT</p>
+                                </div>
+                         </a>
+                     </li>
+                </ul>
+                </div>
+                <button class="cards-arrow right" aria-label="Next projects">&#8250;</button>
+            </div>
+            
+        </section>
+    <section id="press" class="press press-section">
+            <h1>PRESS</h1>
+            <div class="press-articles">
+                <ul class="press-grid">
+                    <li>
+                        <a href="https://sevenbucks.com/2025/09/19/teddy-ruxpin-live-action-movie-in-the-works-at-amazon-mgm-studios-from-seven-bucks-story-kitchen-exclusive/">
+                        <img class="article-image" alt="Article Image" src="images/article1.png">
+                        <h3>Teddy Ruxpin Live-Action Movie in the Works at Amazon MGM Studios From Seven Bucks, Story Kitchen (EXCLUSIVE)</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sevenbucks.com/2025/09/09/dwayne-johnson-a-smash-in-venice-as-the-smashing-machine-gets-15-1-2-minute-ovation/">
+                        <img class="article-image" alt="Article Image" src="images/article2.jpg">
+                        <h3>Dwayne Johnson A Smash In Venice As ‘The Smashing Machine’ Gets 15 1/2-Minute Ovation </h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sevenbucks.com/2025/08/25/how-dwayne-johnson-transformed-into-the-smashing-machine-i-found-it-so-scary/">
+                        <img class="article-image" alt="Article Image" src="images/article3.webp">
+                        <h3>How Dwayne Johnson Transformed Into The Smashing Machine: “I Found It So Scary”</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sevenbucks.com/2025/09/09/the-smashing-machine-review-dwayne-johnson-is-a-revelation-in-benny-safdies-laceratingly-humane-sports-biopic/">
+                        <img class="article-image" alt="Article Image" src="images/article4.png">
+                        <h3>‘The Smashing Machine’ Review: Dwayne Johnson Is a Revelation in Benny Safdie’s Laceratingly Humane Sports Biopic</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sevenbucks.com/2025/06/10/the-one-true-andy-kaufman-a-new-doc-uses-private-tapes-to-capture-his-genius-kindness-and-chaos/">
+                        <img class="article-image" alt="Article Image" src="images/article5.png">
+                        <h3>The One True Andy Kaufman: A New Doc Uses Private Tapes to Capture His Genius, Kindness, and Chaos </h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="https://sevenbucks.com/press/" class="press-viewmore"><h3>VIEW MORE</h3></a>
+        </section>
+    <section id="our-story" class="story">
+            <div><h1>OUR STORY</h1>
+            <p>Co-founded by Dwayne Johnson and Dany Garcia, Seven Bucks Productions is a multi-platform production company pioneering original content for television, film, emerging technologies, and digital networks.</p>
+            </div>
+            <div class="founders">
+                <ul>
+                    <li>
+                        <img class="founder-image" alt="Dwayne Johnson" src="images/story1.png" width="150px" height="150px">
+                        <h3>Dwayne Johnson</h3>
+                        <p>Co-Founder</p>
+                    </li>
+                    <li>
+                        <img class="founder-image" alt="Dwayne Johnson" src="images/story2.png" width="150px" height="150px">
+                        <h3>DANY GARCIA</h3>
+                        <p>Co-Founder</p>
+                    </li>
+                    <li>
+                        <img class="founder-image" alt="Dwayne Johnson" src="images/story3.png" width="150px" height="150px">
+                        <h3>HIRAM GARCIA</h3>
+                        <p>President of Production</p>
+                    </li>
+                    <li>
+                        <img class="founder-image" alt="Dwayne Johnson" src="images/story4.png" width="150px" height="150px">
+                        <h3>KIMBERLY BIALEK</h3>
+                        <p>EVP of Development & Production</p>
+                    </li>
+                </ul>
+            </div>
+            <a href="https://sevenbucks.com/our-story/"><i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+    <section id="stay-connected" class="stay-connected">
+            <h1>STAY CONNECTED</h1>
+            <input type="email" placeholder="Email address">
+            <button class="sub-btn" onclick="window.location.href='mailto:sevenbucks0fficialpage@gmail.com?subject=Hello&body=I%20want%20to%20connect'"></button>
+            <h3>FOLLOW US ON SOCIAL MEDIA</h3>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+    </main>
+    <footer>
+        <h3>© 2025 SEVEN BUCKS PRODUCTIONS ALL RIGHTS RESERVED.</h3>
+        <img class="footer-logo" alt="Footer Logo" src="images/dd.jpeg" width="100px" height="50px">
+    </footer>
+</body>
+<script>
+        const modal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        const modalContent = document.querySelector('#videoModal .modal-content');
+
+        function openModal() {
+            videoFrame.src = 'https://www.youtube.com/embed/aRpnP3LZ99g?si=WX35BEMtOfIIHX7U';
+            modal.style.display = 'flex';
+            // ensure focus for keyboard handling
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            videoFrame.src = '';
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // Close when clicking backdrop
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Prevent clicks inside the modal content from closing
+        if (modalContent) modalContent.addEventListener('click', (e) => e.stopPropagation());
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+        });
+</script>
+    <script>
+    // Cards carousel behavior
+    (() => {
+        const left = document.querySelector('.cards-arrow.left');
+        const right = document.querySelector('.cards-arrow.right');
+        const viewport = document.querySelector('.cards-viewport');
+        const list = document.querySelector('.cards-list');
+
+        if (!viewport || !left || !right || !list) return;
+
+        // Scroll by the viewport width (one "page")
+        function scrollByPage(dir = 1) {
+            const amount = viewport.clientWidth * dir;
+            viewport.scrollBy({ left: amount, behavior: 'smooth' });
+            setTimeout(updateButtons, 300);
+        }
+
+        function updateButtons() {
+            left.disabled = viewport.scrollLeft <= 5;
+            // small fuzz for end
+            right.disabled = Math.ceil(viewport.scrollLeft + viewport.clientWidth) >= list.scrollWidth - 5;
+        }
+
+        left.addEventListener('click', () => scrollByPage(-1));
+        right.addEventListener('click', () => scrollByPage(1));
+
+        // enable mouse wheel horizontal scrolling inside viewport
+       /* viewport.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; // native horizontal
+            e.preventDefault();
+            viewport.scrollLeft += e.deltaY;
+            updateButtons();
+        }, { passive: false });
+        */
+
+        // update on resize or scroll
+        window.addEventListener('resize', updateButtons);
+        viewport.addEventListener('scroll', updateButtons);
+
+        // initial state
+        updateButtons();
+    })();
+    </script>
+        <script>
+        // Simple project filter: show all when 'all' clicked, hide others when other filters clicked
+        (function(){
+            const filterLinks = document.querySelectorAll('.projects-link a[data-filter]');
+            const cards = document.querySelectorAll('.cards-list .card');
+            if (!filterLinks.length || !cards.length) return;
+
+            function setActive(link){
+                filterLinks.forEach(l=> l.classList.remove('active'));
+                link.classList.add('active');
+            }
+
+            filterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const filter = link.getAttribute('data-filter');
+                    setActive(link);
+
+                    if (filter === 'all'){
+                        cards.forEach(c => c.closest('li').style.display = 'block');
+                    } else {
+                        // show only cards matching the filter; since sample cards are all 'movie', others will hide
+                        cards.forEach(c => {
+                            const type = c.getAttribute('data-type');
+                            c.closest('li').style.display = (type === filter) ? 'block' : 'none';
+                        });
+                    }
+                });
+            });
+
+            // Activate 'all' on load
+            const allLink = document.querySelector('.projects-link a[data-filter="all"]');
+            if (allLink) setActive(allLink);
+        })();
+        </script>
+            <script>
+            // Build category sections from existing cards and wire header links to scroll to them
+            (function(){
+                const cardsList = document.querySelector('.cards-list');
+                const categoryContainer = document.querySelector('.category-container');
+                const headerLinks = document.querySelectorAll('.projects-link a[data-filter]');
+                if (!cardsList || !categoryContainer) return;
+
+                // Collect cards and group by data-type
+                const cardItems = Array.from(cardsList.querySelectorAll('li'));
+                const groups = {};
+                cardItems.forEach(li => {
+                    const card = li.querySelector('.card');
+                    const type = (card && card.getAttribute('data-type')) || 'uncategorized';
+                    if (!groups[type]) groups[type] = [];
+                    groups[type].push(li);
+                });
+
+                // Helper to create a carousel section
+                function createCarousel(type, items, isAll = false){
+                    const section = document.createElement('section');
+                    section.className = 'category-section';
+                    section.id = `cat-${type}`;
+                    const title = document.createElement('h2');
+                    title.textContent = type === 'movie' ? 'Movie' : (type === 'tvshow' ? 'TV Show' : (type === 'tvspecial' ? 'TV Special' : (type === 'podcast' ? 'Podcast' : (type === 'all' ? 'All' : 'Other'))));
+                    section.appendChild(title);
+
+                    const carousel = document.createElement('div');
+                    carousel.className = 'category-carousel';
+
+                    const leftBtn = document.createElement('button');
+                    leftBtn.className = 'cards-arrow left';
+                    leftBtn.setAttribute('aria-label','Previous');
+                    leftBtn.innerHTML = '&#8249;';
+
+                    const viewport = document.createElement('div');
+                    viewport.className = 'category-viewport';
+
+                    const list = document.createElement('ul');
+                    list.className = 'category-list';
+
+                    items.forEach(li => {
+                        // If item is a clone (from all), it may not be a li node; ensure li
+                        list.appendChild(li);
+                    });
+
+                    viewport.appendChild(list);
+
+                    const rightBtn = document.createElement('button');
+                    rightBtn.className = 'cards-arrow right';
+                    rightBtn.setAttribute('aria-label','Next');
+                    rightBtn.innerHTML = '&#8250;';
+
+                    carousel.appendChild(leftBtn);
+                    carousel.appendChild(viewport);
+                    carousel.appendChild(rightBtn);
+                    section.appendChild(carousel);
+
+                    // Setup per-carousel scrolling
+                    setupCarousel(carousel);
+
+                    return section;
+                }
+
+                function setupCarousel(carousel){
+                    const left = carousel.querySelector('.cards-arrow.left');
+                    const right = carousel.querySelector('.cards-arrow.right');
+                    const viewport = carousel.querySelector('.category-viewport');
+                    const list = carousel.querySelector('.category-list');
+                    if (!viewport || !left || !right || !list) return;
+
+                    function getMaxScroll(){
+                        return Math.max(0, list.scrollWidth - viewport.clientWidth);
+                    }
+
+                    function scrollByPage(dir = 1){
+                        const amount = viewport.clientWidth * dir;
+                        const max = getMaxScroll();
+                        const target = Math.min(max, Math.max(0, viewport.scrollLeft + amount));
+                        viewport.scrollTo({ left: target, behavior: 'smooth' });
+                        // update after animation (timeout slightly longer for safety)
+                        setTimeout(updateButtons, 350);
+                    }
+
+                    function updateButtons(){
+                        const max = getMaxScroll();
+                        // use small epsilon to avoid float issues
+                        left.disabled = viewport.scrollLeft <= 1;
+                        right.disabled = viewport.scrollLeft >= max - 1;
+                    }
+
+                    left.addEventListener('click', (e) => { e.preventDefault(); scrollByPage(-1); });
+                    right.addEventListener('click', (e) => { e.preventDefault(); scrollByPage(1); });
+
+                    // update on direct scroll or resize
+                    viewport.addEventListener('scroll', updateButtons);
+                    window.addEventListener('resize', updateButtons);
+                    // initial
+                    updateButtons();
+                }
+
+                // Create the 'All' carousel (use clones so originals stay in their groups)
+                const allClones = cardItems.map(li => li.cloneNode(true));
+                const allCarousel = createCarousel('all', allClones, true);
+
+                // Create carousels for each group in preferred order
+                const order = ['movie','tvshow','tvspecial','podcast','uncategorized'];
+                const carousels = [];
+                order.forEach(type => {
+                    if (groups[type] && groups[type].length){
+                        const sec = createCarousel(type, groups[type]);
+                        carousels.push(sec);
+                    }
+                });
+
+                // Insert carousels directly under the project header
+                const projectHeader = document.querySelector('.projectheader');
+                if (projectHeader){
+                    projectHeader.insertAdjacentElement('afterend', allCarousel);
+                    carousels.forEach(c => projectHeader.insertAdjacentElement('afterend', c));
+                } else {
+                    // fallback to previous container
+                    categoryContainer.appendChild(allCarousel);
+                    carousels.forEach(c => categoryContainer.appendChild(c));
+                }
+
+                // Hide original carousel
+                const carousel = document.querySelector('.cards');
+                if (carousel) carousel.classList.add('hidden');
+
+                // Wire header links to show/hide carousels (carousels are inserted directly after .projectheader)
+                const insertedCarousels = Array.from(document.querySelectorAll('.category-section'));
+                headerLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const filter = link.getAttribute('data-filter');
+                        // Hide all carousels
+                        insertedCarousels.forEach(sec => sec.style.display = 'none');
+                        // Show the matching carousel
+                        const target = document.getElementById(`cat-${filter}`) || document.getElementById('cat-all');
+                        if (target) target.style.display = '';
+                        // active styling
+                        document.querySelectorAll('.projects-link a').forEach(a=>a.classList.remove('active'));
+                        link.classList.add('active');
+                    });
+                });
+
+                // Make sure All is active by default and hide other carousels
+                const allLink = document.querySelector('.projects-link a[data-filter="all"]');
+                insertedCarousels.forEach(sec => {
+                    if (sec.id !== 'cat-all') sec.style.display = 'none';
+                });
+                if (allLink) allLink.classList.add('active');
+
+            })();
+            </script>
+</html>
