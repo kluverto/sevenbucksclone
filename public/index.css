@@ -91,6 +91,7 @@ header{
 	width:100%;
 	height:420px;
 	object-fit:cover;
+	object-position:left center;
 	display:block;
 }
 
@@ -423,21 +424,21 @@ section, section h1, section h2{
  	.banner-image{height:360px}
  	/* Show nav links as a stacked, touch-friendly menu on small screens */
   	.nav-bar{padding:12px;flex-direction:column;align-items:stretch}
-   	.hamburger{display:inline-flex;position:absolute;left:16px;top:14px}
+   	.hamburger{display:inline-flex;position:absolute;right:16px;top:14px}
   	.nav-bar .logo{margin-bottom:8px;display:block;margin-left:auto;margin-right:auto}
   	.nav-bar > div{width:100%}
   	.nav-bar ul{display:flex;flex-direction:column;gap:12px;margin-top:8px;background:rgba(16,18,22,0.98);padding:8px;border-radius:6px;width:100%}
   	.nav-bar li h1{font-size:15px;padding:8px 12px}
- 	:root{--header-offset:160px} /* header expands on small screens; use a moderate offset */
+ 	:root{--header-offset:70px} /* reduced space between navbar and banner */
  }
 
 /* extra compact nav for small phones */
 @media (max-width:420px){
 	.nav-bar{padding:8px}
 	.nav-bar .logo{height:44px}
-	.hamburger{left:12px;top:10px}
+	.hamburger{right:12px;top:10px}
 	.nav-bar li h1{font-size:13px;padding:6px 10px}
-	:root{--header-offset:140px}
+	:root{--header-offset:65px}
 }
 
 /* Mobile landscape tweaks: make the UI fit when phone is rotated */
@@ -445,8 +446,8 @@ section, section h1, section h2{
 	/* reduce header footprint */
 	:root{--header-offset:64px}
 
-	/* make banner much shorter but show entire image */
-	.banner-image{height:180px;max-height:220px;object-fit:contain}
+	/* make banner much shorter and keep it cropped */
+	.banner-image{height:180px;object-fit:cover}
 
 	/* stack buttons but keep them small */
 	.banner .view-project, .banner .trailer{
@@ -473,8 +474,8 @@ section, section h1, section h2{
 }
 
 @media (max-width:700px){
- 	/* Make banner image fully visible on small screens */
- 	.banner-image{height:auto;max-height:320px;object-fit:contain}
+ 	/* Keep banner image cropped on small screens */
+ 	.banner-image{height:280px;object-fit:cover}
  	/* Make banner actions stack vertically to avoid overlap and be smaller */
  	.banner .view-project, .banner .trailer{position:static;display:block;width:calc(100% - 40px);margin:8px auto 0;padding:8px 10px;font-size:14px}
  	.banner .view-project{background:#444;padding:8px 10px}
@@ -498,7 +499,7 @@ section, section h1, section h2{
 	.founder-image{width:100px;height:100px}
 
 	/* Reduce header offset on small screens */
-	:root{--header-offset:200px}
+	:root{--header-offset:70px}
 	footer{flex-direction:column;gap:8px;padding:18px}
 }
 
@@ -561,4 +562,3 @@ header.nav-open .hamburger-line:nth-child(3){transform: translateY(-7px) rotate(
 
 /* small aesthetic tweaks */
 h1,h3{font-family:inherit}
-
