@@ -1,7 +1,8 @@
 {
   "projects": {
-    "default": "first-project-dd7a4",
-    "sevenbucks": "sevenbuckspro"
+    "default": "seven7bucks",
+    "sevenbucks": "sevenbuckspro",
+    "final": "seven7bucks"
   },
   "targets": {},
   "etags": {}
